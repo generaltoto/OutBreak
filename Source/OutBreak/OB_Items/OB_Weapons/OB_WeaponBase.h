@@ -14,9 +14,21 @@ class OUTBREAK_API AOB_WeaponBase : public AActor
 public:
 	AOB_WeaponBase();
 
+	virtual void Tick(float DeltaTime) override;
+
+	FName& GetName() { return WeaponName; }
+
 protected:
 	virtual void BeginPlay() override;
 
+	/** Weapon Stats */
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Stats)
+	FName WeaponName;
+
+	UPROPERTY(Instanced, EditAnywhere, BlueprintReadWrite, Category=Stats)
+	TObjectPtr<class UOB_AmmoComponent> AmmoComponent;
+	
 	/** Components */
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Components)
@@ -72,6 +84,5 @@ protected:
 private:
 	AOB_Character* Character;
 
-public:
-	virtual void Tick(float DeltaTime) override;
+
 };

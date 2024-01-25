@@ -5,6 +5,7 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "OB_AmmoComponent.h"
 #include "OB_Projectile.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -23,6 +24,9 @@ AOB_WeaponBase::AOB_WeaponBase()
 
 	PickupTrigger = CreateDefaultSubobject<UBoxComponent>("PickupTrigger");
 	PickupTrigger->SetupAttachment(Root);
+
+	AmmoComponent = CreateDefaultSubobject<UOB_AmmoComponent>("AmmoComponent");
+	AddOwnedComponent(AmmoComponent);
 }
 
 void AOB_WeaponBase::BeginPlay()
