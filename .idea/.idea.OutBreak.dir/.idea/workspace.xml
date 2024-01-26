@@ -7,14 +7,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":feat: ($UI) : Implement weapon ammo UI">
-      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" afterDir="false" />
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":feat: ($Weapons) : Create pistol">
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AB_Zombie.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Zombie/OB_Zombie.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Zombie/OB_Zombie.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Pistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Pistol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Projectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Projectile.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -150,7 +164,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706177259634</updated>
       <workItem from="1706179985951" duration="17002000" />
-      <workItem from="1706269317582" duration="6168000" />
+      <workItem from="1706269317582" duration="14322000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -192,7 +206,47 @@
       <option name="project" value="LOCAL" />
       <updated>1706274760912</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=":feat: ($Enemies) : Create first enemies base class">
+      <option name="closed" value="true" />
+      <created>1706275992703</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706275992703</updated>
+    </task>
+    <task id="LOCAL-00007" summary=":build: ($Weapons) : Add weapon bundle">
+      <option name="closed" value="true" />
+      <created>1706276969630</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706276969630</updated>
+    </task>
+    <task id="LOCAL-00008" summary=":build: ($Weapons) : Add second weapon assets pack">
+      <option name="closed" value="true" />
+      <created>1706277729525</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706277729525</updated>
+    </task>
+    <task id="LOCAL-00009" summary=":build: ($Character) : Add character assets pack">
+      <option name="closed" value="true" />
+      <created>1706277754662</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706277754662</updated>
+    </task>
+    <task id="LOCAL-00010" summary=":feat: ($Weapons) : Create pistol">
+      <option name="closed" value="true" />
+      <created>1706277783256</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706277783256</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -208,6 +262,11 @@
     <MESSAGE value=" ($features) : Inputs and Shooting weapon" />
     <MESSAGE value=":feat: ($Weapon) : Add weapon ammo" />
     <MESSAGE value=":feat: ($UI) : Implement weapon ammo UI" />
-    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($UI) : Implement weapon ammo UI" />
+    <MESSAGE value=":feat: ($Enemies) : Create first enemies base class" />
+    <MESSAGE value=":build: ($Weapons) : Add weapon bundle" />
+    <MESSAGE value=":build: ($Weapons) : Add second weapon assets pack" />
+    <MESSAGE value=":build: ($Character) : Add character assets pack" />
+    <MESSAGE value=":feat: ($Weapons) : Create pistol" />
+    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($Weapons) : Create pistol" />
   </component>
 </project>
