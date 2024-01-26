@@ -7,20 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonArms/Animations/FirstPerson_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonArms/Animations/FirstPerson_AnimBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Rifle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/TP_WeaponComponent.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/TP_WeaponComponent.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Obstacle.cpp" afterDir="false" />
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":feat: ($UI) : Implement weapon ammo UI">
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +150,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706177259634</updated>
       <workItem from="1706179985951" duration="17002000" />
-      <workItem from="1706269317582" duration="5289000" />
+      <workItem from="1706269317582" duration="6168000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -195,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706199211242</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=":feat: ($UI) : Implement weapon ammo UI">
+      <option name="closed" value="true" />
+      <created>1706274760912</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706274760912</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -210,6 +207,7 @@
     <MESSAGE value=":feat: ($features) : Inputs and Shooting weapon" />
     <MESSAGE value=" ($features) : Inputs and Shooting weapon" />
     <MESSAGE value=":feat: ($Weapon) : Add weapon ammo" />
-    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($Weapon) : Add weapon ammo" />
+    <MESSAGE value=":feat: ($UI) : Implement weapon ammo UI" />
+    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($UI) : Implement weapon ammo UI" />
   </component>
 </project>
