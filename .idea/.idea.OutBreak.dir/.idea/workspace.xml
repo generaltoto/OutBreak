@@ -7,12 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment="🌟 ($features) : Inputs and Shooting weapon">
-      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.h" afterDir="false" />
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HUD.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonArms/Animations/FirstPerson_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonArms/Animations/FirstPerson_AnimBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Rifle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/TP_WeaponComponent.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/TP_WeaponComponent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Obstacle.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +30,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "generaltoto"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;generaltoto&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -63,24 +71,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Uproject.OutBreak.executor": "Debug",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Uproject.OutBreak.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\thoma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\thoma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\thoma\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\thoma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\thoma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\thoma\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="OutBreak" type="Uproject" factoryName="rider.uproject">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/OutBreak.uproject" />
@@ -152,7 +160,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706177259634</updated>
-      <workItem from="1706179985951" duration="16863000" />
+      <workItem from="1706179985951" duration="17002000" />
+      <workItem from="1706269317582" duration="5289000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -178,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706195508739</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=":feat: ($Weapon) : Add weapon ammo">
+      <option name="closed" value="true" />
+      <created>1706199211241</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706199211242</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -192,6 +209,7 @@
     <MESSAGE value=":build: ($Setup) : Trying to make base content work after class renaming" />
     <MESSAGE value=":feat: ($features) : Inputs and Shooting weapon" />
     <MESSAGE value=" ($features) : Inputs and Shooting weapon" />
-    <option name="LAST_COMMIT_MESSAGE" value=" ($features) : Inputs and Shooting weapon" />
+    <MESSAGE value=":feat: ($Weapon) : Add weapon ammo" />
+    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($Weapon) : Add weapon ammo" />
   </component>
 </project>

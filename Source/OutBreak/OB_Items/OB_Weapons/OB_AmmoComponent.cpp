@@ -11,6 +11,11 @@ UOB_AmmoComponent::UOB_AmmoComponent()
 }
 
 
+void UOB_AmmoComponent::Shoot()
+{
+	OnAmmoChanged.Broadcast(--CurrentAmmo, AmmoInReserve);
+}
+
 void UOB_AmmoComponent::Reload()
 {
 	if (AmmoInReserve <= 0 || CurrentAmmo >= AmmoPerClip) return;
@@ -26,7 +31,8 @@ void UOB_AmmoComponent::Reload()
 		CurrentAmmo += AmmoNeeded;
 		AmmoInReserve -= AmmoNeeded;
 	}
-	
+
+	OnAmmoChanged.Broadcast(CurrentAmmo, AmmoInReserve);
 
 	if (ReloadSound != nullptr)
 	{
@@ -48,7 +54,8 @@ void UOB_AmmoComponent::Reload()
 void UOB_AmmoComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	CurrentAmmo = AmmoPerClip;
 }
 
 

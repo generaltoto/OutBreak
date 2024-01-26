@@ -10,14 +10,12 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
-#include "OutBreak/OB_Items/OB_Weapons/TP_WeaponComponent.h"
+#include "OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 AOB_Character::AOB_Character()
 {
-	bHasRifle = false;
-	
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 		
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
@@ -39,12 +37,18 @@ void AOB_Character::BeginPlay()
 	Super::BeginPlay();
 }
 
-void AOB_Character::SetHasRifle(bool bNewHasRifle)
+void AOB_Character::EquipWeapon(AOB_WeaponBase* Weapon)
 {
-	bHasRifle = bNewHasRifle;
+	const FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
+	Weapon->AttachToComponent(GetMesh(), AttachmentRules, FName(TEXT("GripPoint")));
+
+	CurrentWeapon = Weapon;
+	OnWeaponChanged.Broadcast(CurrentWeapon);
 }
 
-bool AOB_Character::GetHasRifle()
+void AOB_Character::UnequipWeapon()
 {
-	return bHasRifle;
+	CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	CurrentWeapon = nullptr;
+	OnWeaponChanged.Broadcast(CurrentWeapon);
 }

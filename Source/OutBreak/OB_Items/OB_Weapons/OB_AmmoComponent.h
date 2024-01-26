@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "OB_AmmoComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnAmmoChanged, int32, CurrentAmmo, int32, AmmoInReserve);
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class OUTBREAK_API UOB_AmmoComponent : public UActorComponent
@@ -17,8 +18,24 @@ public:
 
 	bool CanShoot() const { return CurrentAmmo > 0; }
 
-	UFUNCTION(BlueprintCallable, Category = "Ammo")
+	/** Reload */
+
+	UFUNCTION(BlueprintCallable, Category=Shoot)
+	void Shoot();
+
+	UFUNCTION(BlueprintCallable, Category=Reload)
 	void Reload();
+	
+	UPROPERTY(BlueprintAssignable, Category=Events)
+	FOnAmmoChanged OnAmmoChanged;
+
+	/** Getters */
+
+	UFUNCTION(BlueprintCallable, Category=Ammo)
+	int32 GetCurrentAmmo() const { return CurrentAmmo; }
+
+	UFUNCTION(BlueprintCallable, Category=Ammo)
+	int32 GetAmmoInReserve() const { return AmmoInReserve; }
 
 protected:
 	virtual void BeginPlay() override;
@@ -27,10 +44,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Reload)
 	USoundBase* ReloadSound;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Reload)
 	UAnimMontage* ReloadAnimation;
-
+	
 	/** Ammo */
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Ammo")

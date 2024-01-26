@@ -7,6 +7,7 @@
 #include "Logging/LogMacros.h"
 #include "OB_Character.generated.h"
 
+class AOB_WeaponBase;
 class UInputComponent;
 class USkeletalMeshComponent;
 class UCameraComponent;
@@ -15,15 +16,12 @@ class UInputMappingContext;
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnWeaponChanged, AOB_WeaponBase*, NewWeapon);
 
 UCLASS(config=Game)
 class AOB_Character : public ACharacter
 {
 	GENERATED_BODY()
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* FirstPersonCameraComponent;
-	
 public:
 	AOB_Character();
 
@@ -32,17 +30,33 @@ protected:
 
 public:
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Weapon)
-	bool bHasRifle;
+	/** Weapon */
+	
+	UPROPERTY(BlueprintAssignable, Category = Weapon)
+	FOnWeaponChanged OnWeaponChanged;
 
 	UFUNCTION(BlueprintCallable, Category = Weapon)
-	void SetHasRifle(bool bNewHasRifle);
+	void EquipWeapon(AOB_WeaponBase* Weapon);
 
 	UFUNCTION(BlueprintCallable, Category = Weapon)
-	bool GetHasRifle();
+	void UnequipWeapon();
 
-public:
+	/** Getters */
+
+	UFUNCTION(BlueprintCallable, Category = Camera)
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+
+	UFUNCTION(BlueprintCallable, Category = Weapon)
+	AOB_WeaponBase* GetCurrentWeapon() const { return CurrentWeapon; }
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* FirstPersonCameraComponent;
+
+	/** Weapon */
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Weapon)
+	AOB_WeaponBase* CurrentWeapon;
 
 };
 

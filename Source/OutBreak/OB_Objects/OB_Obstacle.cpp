@@ -4,8 +4,6 @@
 #include "OB_Obstacle.h"
 
 #include "OutBreak/OB_Character/OB_Character.h"
-#include "Kismet/GameplayStatics.h"
-#include "OutBreak/OB_Items/OB_Weapons/TP_WeaponComponent.h"
 
 AOB_Obstacle::AOB_Obstacle()
 {

@@ -46,16 +46,19 @@ void AOB_WeaponBase::Fire()
 	if (Character == nullptr || Character->GetController() == nullptr) return;
 
 	TryShoot();
-	
-	PlayFireAnimations();
 }
 
 void AOB_WeaponBase::TryShoot()
 {
-	if (ProjectileClass == nullptr) return;
-	
 	UWorld* World = GetWorld();
-	if (World == nullptr) return;
+	if (ProjectileClass == nullptr || World == nullptr) return;
+
+	// Check if the player is able to shoot
+	if (!AmmoComponent->CanShoot())
+	{
+		AmmoComponent->Reload();
+		return;
+	}
 
 	const APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
 	const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
@@ -65,6 +68,10 @@ void AOB_WeaponBase::TryShoot()
 	ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 	
 	World->SpawnActor<AOB_Projectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+
+	AmmoComponent->Shoot();
+
+	PlayFireAnimations();
 }
 
 void AOB_WeaponBase::PlayFireAnimations()
@@ -87,12 +94,12 @@ void AOB_WeaponBase::TryAttachWeapon(AOB_Character* TargetCharacter)
 {
 	Character = TargetCharacter;
 
-	if (Character == nullptr || Character->GetHasRifle()) return;
+	if (Character == nullptr) return;
 
-	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-	AttachToComponent(Character->GetMesh(), AttachmentRules, FName(TEXT("GripPoint")));
+	// If the player already has a weapon equipped, unequip it
+	if (Character->GetCurrentWeapon() != nullptr) Character->UnequipWeapon();
 	
-	Character->SetHasRifle(true);
+	Character->EquipWeapon(this);
 
 	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
 	{
