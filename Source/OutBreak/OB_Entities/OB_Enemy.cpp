@@ -2,6 +2,7 @@
 
 #include "OB_Enemy.h"
 
+#include "OB_EnemyController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
 #include "OB_Components/OB_HealthComponent.h"
@@ -25,7 +26,7 @@ AOB_Enemy::AOB_Enemy()
 void AOB_Enemy::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	RangeDetectionSphere->OnComponentBeginOverlap.AddDynamic(this, &AOB_Enemy::OnRangeDetectionSphereBeginOverlap);
 	RangeDetectionSphere->OnComponentEndOverlap.AddDynamic(this, &AOB_Enemy::OnRangeDetectionSphereEndOverlap);
 
@@ -54,9 +55,13 @@ void AOB_Enemy::OnRangeDetectionSphereBeginOverlap(
 	const FHitResult& SweepResult
 )
 {
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("OnRangeDetectionSphereBeginOverlap"));
+	
 	if (OtherActor->ActorHasTag("Player") == false) return;
 
-	TargetActor = OtherActor;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("OnRangeDetectionSphereBeginOverlap Player"));
+
+	OnTargetChange.Broadcast(OtherActor);
 }
 
 void AOB_Enemy::OnRangeDetectionSphereEndOverlap(
@@ -65,7 +70,7 @@ void AOB_Enemy::OnRangeDetectionSphereEndOverlap(
 {
 	if (OtherActor->ActorHasTag("Player") == false) return;
 
-	TargetActor = nullptr;
+	OnTargetChange.Broadcast(nullptr);
 }
 
 void AOB_Enemy::Tick(float DeltaTime)

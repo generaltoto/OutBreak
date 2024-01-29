@@ -22,18 +22,14 @@ void AOB_AutomaticWeapon::BeginPlay()
 void AOB_AutomaticWeapon::Fire()
 {
 	Super::Fire();
-
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Fire"));
-
+	
 	GetWorld()->GetTimerManager().SetTimer(FireTimerHandle, this, &AOB_AutomaticWeapon::TryShoot, FireRate, true);
 }
 
 void AOB_AutomaticWeapon::StopFire()
 {
 	Super::StopFire();
-
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("StopFire"));
-
+	
 	GetWorld()->GetTimerManager().ClearTimer(FireTimerHandle);
 }
 

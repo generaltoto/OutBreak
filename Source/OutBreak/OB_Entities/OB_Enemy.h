@@ -6,7 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "OB_Enemy.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum EEnemyState : uint8
 {
 	IDLE		UMETA(DisplayName = "Idle"),
@@ -16,6 +16,7 @@ enum EEnemyState : uint8
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStateChange, EEnemyState, State);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTargetChange, AActor*, Target);
 
 UCLASS()
 class OUTBREAK_API AOB_Enemy : public APawn
@@ -26,6 +27,12 @@ public:
 	AOB_Enemy();
 
 	virtual void Tick(float DeltaTime) override;
+	
+	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, Category = State)
+	FOnStateChange OnStateChange;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
+	FOnTargetChange OnTargetChange;
 
 protected:
 
@@ -47,12 +54,11 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = State)
 	TEnumAsByte<EEnemyState> State;
+	
+	/** Properties AI */
 
-	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, Category = State)
-	FOnStateChange OnStateChange;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Target)
-	AActor* TargetActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
+	TSubclassOf<class AOB_EnemyController> EnemyControllerClass;
 	
 	/** Methods Basic */
 	
