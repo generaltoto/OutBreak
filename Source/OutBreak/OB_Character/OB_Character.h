@@ -58,5 +58,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Weapon)
 	AOB_WeaponBase* CurrentWeapon;
 
+	/** Components */
+
+	UPROPERTY(Instanced, EditAnywhere, BlueprintReadWrite, Category = Components)
+	class UOB_HealthComponent* HealthComponent;
+
 };
 

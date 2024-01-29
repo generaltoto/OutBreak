@@ -36,5 +36,5 @@ void UOB_HealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	CurrentHealth = MaxHealth;
+	SetHealth(MaxHealth);
 }
