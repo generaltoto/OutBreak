@@ -61,13 +61,19 @@ protected:
 	class UInputAction* FireAction;
 	
 	UFUNCTION(BlueprintCallable, Category=Input)
-	void Fire();
+	virtual void Fire();
+
+	UFUNCTION(BlueprintCallable, Category=Input)
+	virtual void StopFire();
 	
 	UFUNCTION(BlueprintCallable, Category=Input)
-	virtual void TryShoot();
+	void TryShoot();
+
+	UFUNCTION(BlueprintCallable, Category=Input)
+	virtual void Shoot();
 
 	UFUNCTION(Blueprintable, Category=Input)
-	virtual void PlayFireAnimations();
+	void PlayFireAnimations() const;
 
 	/** Weapon Attachment */
 
@@ -81,8 +87,8 @@ protected:
 	void OnTriggerBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
 		const FHitResult& SweepResult);
 
-private:
+	/** References */
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Refs)
 	AOB_Character* Character;
-
-
 };

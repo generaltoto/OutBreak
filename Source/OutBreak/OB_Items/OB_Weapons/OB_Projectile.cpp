@@ -3,6 +3,7 @@
 #include "OB_Projectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 AOB_Projectile::AOB_Projectile() 
 {
@@ -33,11 +34,8 @@ AOB_Projectile::AOB_Projectile()
 
 void AOB_Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	// Only add impulse and destroy projectile if we hit a physics
-	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
-	{
-		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+	UGameplayStatics::ApplyDamage(OtherActor, Damage, nullptr, this, DamageType);
 
-		Destroy();
-	}
+	FTimerHandle TimerHandle;
+	GetWorld()->GetTimerManager().SetTimer(TimerHandle, [this]() { Destroy(); }, 0.5f, false);
 }

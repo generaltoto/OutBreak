@@ -5,8 +5,8 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "OB_AmmoComponent.h"
-#include "OB_Projectile.h"
+#include "OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.h"
+#include "OutBreak/OB_Items/OB_Weapons/OB_Projectile.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "OutBreak/OB_Character/OB_Character.h"
@@ -43,15 +43,15 @@ void AOB_WeaponBase::Tick(float DeltaTime)
 
 void AOB_WeaponBase::Fire()
 {
-	if (Character == nullptr || Character->GetController() == nullptr) return;
+}
 
-	TryShoot();
+void AOB_WeaponBase::StopFire()
+{
 }
 
 void AOB_WeaponBase::TryShoot()
 {
-	UWorld* World = GetWorld();
-	if (ProjectileClass == nullptr || World == nullptr) return;
+	if (ProjectileClass == nullptr) return;
 
 	// Check if the player is able to shoot
 	if (!AmmoComponent->CanShoot())
@@ -60,21 +60,15 @@ void AOB_WeaponBase::TryShoot()
 		return;
 	}
 
-	const APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
-	const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-	const FVector SpawnLocation = GetActorLocation() + SpawnRotation.RotateVector(ProjectileSpawnOffset);
-	
-	FActorSpawnParameters ActorSpawnParams;
-	ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-	
-	World->SpawnActor<AOB_Projectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-
-	AmmoComponent->Shoot();
-
-	PlayFireAnimations();
+	Shoot();
 }
 
-void AOB_WeaponBase::PlayFireAnimations()
+void AOB_WeaponBase::Shoot()
+{
+
+}
+
+void AOB_WeaponBase::PlayFireAnimations() const
 {
 	if (FireSound != nullptr)
 	{
@@ -111,6 +105,7 @@ void AOB_WeaponBase::TryAttachWeapon(AOB_Character* TargetCharacter)
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 		{
 			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &AOB_WeaponBase::Fire);
+			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Completed, this, &AOB_WeaponBase::StopFire);
 		}
 	}
 }

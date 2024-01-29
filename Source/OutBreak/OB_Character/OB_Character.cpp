@@ -11,7 +11,7 @@
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
 #include "OutBreak/OB_Entities/OB_Components/OB_HealthComponent.h"
-#include "OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.h"
+#include "OutBreak/OB_Items/OB_Weapons/Base/OB_WeaponBase.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 

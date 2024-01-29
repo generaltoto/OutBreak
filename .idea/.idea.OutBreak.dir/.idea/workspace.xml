@@ -7,19 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_DamageTypeEnemy.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_DamageTypePlayer.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HealthBar.uasset" afterDir="false" />
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":feat: ($UI) : Create Health bar for player and template for enemy">
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_AutomaticWeapon.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_AutomaticWeapon.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_ManualWeapon.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_ManualWeapon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Character/BP_Hero.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Character/BP_Hero.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Projectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Projectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Pistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Pistol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Items/Weapons/BP_Rifle.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_Projectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_Projectile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_Projectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_Projectile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_WeaponBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_WeaponBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +163,7 @@
       <updated>1706177259634</updated>
       <workItem from="1706179985951" duration="17002000" />
       <workItem from="1706269317582" duration="14322000" />
-      <workItem from="1706514973633" duration="2840000" />
+      <workItem from="1706514973633" duration="13069000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -241,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706277783256</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=":feat: ($UI) : Create Health bar for player and template for enemy">
+      <option name="closed" value="true" />
+      <created>1706518112065</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706518112065</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -262,6 +274,7 @@
     <MESSAGE value=":build: ($Weapons) : Add second weapon assets pack" />
     <MESSAGE value=":build: ($Character) : Add character assets pack" />
     <MESSAGE value=":feat: ($Weapons) : Create pistol" />
-    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($Weapons) : Create pistol" />
+    <MESSAGE value=":feat: ($UI) : Create Health bar for player and template for enemy" />
+    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($UI) : Create Health bar for player and template for enemy" />
   </component>
 </project>

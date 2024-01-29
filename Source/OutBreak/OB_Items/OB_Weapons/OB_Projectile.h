@@ -22,6 +22,13 @@ class AOB_Projectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
+	TSubclassOf<class UDamageType> DamageType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
+	float Damage;
+
 public:
 	AOB_Projectile();
 
