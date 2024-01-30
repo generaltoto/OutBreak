@@ -3,49 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
+#include "OB_EnemyStates.h"
 #include "OB_Enemy.generated.h"
 
-UENUM(BlueprintType)
-enum EEnemyState : uint8
-{
-	IDLE		UMETA(DisplayName = "Idle"),
-	RUNNING 	UMETA(DisplayName = "Running"),
-	ATTACKING 	UMETA(DisplayName = "Attacking"),
-	DEAD 		UMETA(DisplayName = "Dead")
-};
-
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStateChange, EEnemyState, State);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTargetChange, AActor*, Target);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStateChange, EEnemyState, State, AActor*, Target);
 
 UCLASS()
-class OUTBREAK_API AOB_Enemy : public APawn
+class OUTBREAK_API AOB_Enemy : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	AOB_Enemy();
-
-	virtual void Tick(float DeltaTime) override;
 	
 	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, Category = State)
 	FOnStateChange OnStateChange;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
-	FOnTargetChange OnTargetChange;
+
+	UFUNCTION(BlueprintGetter, Category = Components)
+	class UOB_HealthComponent* GetHealthComponent() const { return HealthComponent; }
 
 protected:
 
 	/** Properties Component */
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
-	class UCapsuleComponent* Capsule;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
-	USkeletalMeshComponent* Mesh;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
 	class USphereComponent* RangeDetectionSphere;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Components)
+	class USphereComponent* AttackRangeSphere;
 
 	UPROPERTY(Instanced, EditAnywhere, BlueprintReadOnly, Category = Components)
 	class UOB_HealthComponent* HealthComponent;
@@ -54,11 +40,18 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = State)
 	TEnumAsByte<EEnemyState> State;
-	
-	/** Properties AI */
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
-	TSubclassOf<class AOB_EnemyController> EnemyControllerClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
+	float AttackDamage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
+	TSubclassOf<UDamageType> DmgType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
+	float AttackRate;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Damage)
+	FTimerHandle AttackTimerHandle;
 	
 	/** Methods Basic */
 	
@@ -75,7 +68,7 @@ protected:
 	/** Methods State */
 
 	UFUNCTION(BlueprintCallable, Category = State)
-	void SetState(EEnemyState NewState);
+	void SetState(EEnemyState NewState, AActor* Target = nullptr);
 
 	/** Methods AI */
 
@@ -85,5 +78,13 @@ protected:
 
 	UFUNCTION()
 	virtual void OnRangeDetectionSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex);
+
+	UFUNCTION()
+	virtual void OnAttackRangeSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+	virtual void OnAttackRangeSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
 		int32 OtherBodyIndex);
 };

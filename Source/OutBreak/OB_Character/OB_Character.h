@@ -50,6 +50,8 @@ public:
 	AOB_WeaponBase* GetCurrentWeapon() const { return CurrentWeapon; }
 
 protected:
+	/** Components */
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 
@@ -58,10 +60,18 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Weapon)
 	AOB_WeaponBase* CurrentWeapon;
 
-	/** Components */
+	/** Health */
 
 	UPROPERTY(Instanced, EditAnywhere, BlueprintReadWrite, Category = Components)
 	class UOB_HealthComponent* HealthComponent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
+	TSubclassOf<UDamageType> CanTakeDamageType;
+	
+	UFUNCTION()
+	virtual void OnDamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
+	
+	UFUNCTION()
+	void HandleDeath();
 };
 

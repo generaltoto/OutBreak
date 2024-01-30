@@ -7,18 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":feat: ($Weapons) : Implement automatic and manual weapons">
-      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AI_Zombie.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.h" afterDir="false" />
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyStates.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Character/BP_Hero.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Character/BP_Hero.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AB_Zombie.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AB_Zombie.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AI_Zombie.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AI_Zombie.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Inputs/Actions/IA_Shoot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Inputs/Actions/IA_Shoot.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/JU/LRU5HXWKDIZO33WLAKNAJ5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/JU/LRU5HXWKDIZO33WLAKNAJ5.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_AutomaticWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_AutomaticWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OutBreak.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OutBreak.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/Base/OB_WeaponBase.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +59,6 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/thoma/Documents/Unreal Projects/OutBreak/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -172,7 +164,8 @@
       <updated>1706177259634</updated>
       <workItem from="1706179985951" duration="17002000" />
       <workItem from="1706269317582" duration="14322000" />
-      <workItem from="1706514973633" duration="22082000" />
+      <workItem from="1706514973633" duration="22322000" />
+      <workItem from="1706600650085" duration="11146000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -270,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706528650057</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary=":feat: ($AI) : First implementation of zombie AI">
+      <option name="closed" value="true" />
+      <created>1706540350222</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706540350222</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -289,6 +290,7 @@
     <MESSAGE value=":feat: ($Weapons) : Create pistol" />
     <MESSAGE value=":feat: ($UI) : Create Health bar for player and template for enemy" />
     <MESSAGE value=":feat: ($Weapons) : Implement automatic and manual weapons" />
-    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($Weapons) : Implement automatic and manual weapons" />
+    <MESSAGE value=":feat: ($AI) : First implementation of zombie AI" />
+    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($AI) : First implementation of zombie AI" />
   </component>
 </project>

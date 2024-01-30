@@ -1,14 +1,15 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
-#include "OB_Enemy.h"
-
 #include "OB_EnemyController.h"
 
+#include "OB_Enemy.h"
 #include "Navigation/PathFollowingComponent.h"
+#include "OB_Components/OB_HealthComponent.h"
 
 AOB_EnemyController::AOB_EnemyController()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	TargetActor = nullptr;
 }
 
 void AOB_EnemyController::BeginPlay()
@@ -21,9 +22,18 @@ void AOB_EnemyController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (TargetActor == nullptr)
+	switch (ControlledPawnState)
 	{
-		GetPawn()->AddMovementInput(GetPawn()->GetActorForwardVector(), 1.f);
+		case EEnemyState::IDLE:
+			GetPawn()->AddMovementInput(GetPawn()->GetActorForwardVector(), 1.0f);
+			break;
+		case EEnemyState::CHASING:
+			MoveToActor(TargetActor, AcceptanceRadius);
+			break;
+		case EEnemyState::ATTACKING:
+		case EEnemyState::DEAD:
+		default:
+			break;
 	}
 }
 
@@ -32,24 +42,18 @@ void AOB_EnemyController::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 
 	AOB_Enemy* Enemy = Cast<AOB_Enemy>(InPawn);
-	Enemy->OnTargetChange.AddDynamic(this, &AOB_EnemyController::OnTargetChange);
+	Enemy->GetHealthComponent()->OnDeath.AddDynamic(this, &AOB_EnemyController::OnDeath);
+	Enemy->OnStateChange.AddDynamic(this, &AOB_EnemyController::OnStateChange);
 }
 
-void AOB_EnemyController::OnTargetChange(AActor* NewTarget)
+void AOB_EnemyController::OnStateChange(EEnemyState State, AActor* Target)
 {
-	TargetActor = NewTarget;
-	if (TargetActor == nullptr) return;
-	
-	auto result = MoveTo(TargetActor->GetActorLocation());
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("MoveTo result: %d"), (int)result));
+	TargetActor = Target;
+	ControlledPawnState = State;
 }
 
-void AOB_EnemyController::OnStateChange(EEnemyState NewState)
+void AOB_EnemyController::OnDeath()
 {
-	if (NewState == EEnemyState::DEAD)
-	{
-		StopMovement();
-	}
+	StopMovement();
+	DetachFromPawn();
 }
-
-

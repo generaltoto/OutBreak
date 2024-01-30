@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Runtime/AIModule/Classes/AIController.h"
+#include "OB_EnemyStates.h"
 #include "OB_EnemyController.generated.h"
 
 UCLASS()
@@ -24,11 +25,17 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Target)
 	AActor* TargetActor;
 
-	UFUNCTION()
-	void OnTargetChange(AActor* NewTarget);
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Target)
+	TEnumAsByte<EEnemyState> ControlledPawnState;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
+	float AcceptanceRadius;
 
 	UFUNCTION()
-	void OnStateChange(EEnemyState NewState);
+	void OnStateChange(EEnemyState State, AActor* Target);
+
+	UFUNCTION()
+	void OnDeath();
 
 	
 };
