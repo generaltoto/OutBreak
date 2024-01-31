@@ -23,13 +23,16 @@ void UOB_HealthComponent::RemoveHealth(const float Amount)
 
 void UOB_HealthComponent::SetHealth(const float NewHealth)
 {
-	CurrentHealth = FMath::Clamp(NewHealth, 0.f, MaxHealth);
-	OnHealthChanged.Broadcast(CurrentHealth, MaxHealth, GetHealthRatio());
-
-	if (CurrentHealth <= 0.f)
+	const float SupposedHealth = FMath::Clamp(NewHealth, 0.f, MaxHealth);
+	
+	if (SupposedHealth <= 0.f)
 	{
 		OnDeath.Broadcast();
+		return;
 	}
+
+	CurrentHealth = SupposedHealth;
+	OnHealthChanged.Broadcast(CurrentHealth, MaxHealth, GetHealthRatio());
 }
 
 void UOB_HealthComponent::BeginPlay()

@@ -51,7 +51,7 @@ void AOB_Enemy::HandleDeath()
 	GetWorld()->GetTimerManager().SetTimer(DeathTimerHandle, [this]()
 	{
 		Destroy();
-	}, 2.0f, false);
+	}, 1.0f, false);
 }
 
 void AOB_Enemy::SetState(EEnemyState NewState, AActor* Target)
@@ -91,6 +91,11 @@ void AOB_Enemy::OnAttackRangeSphereBeginOverlap(
 
 	GetWorld()->GetTimerManager().SetTimer(AttackTimerHandle, [this, OtherActor]()
 	{
+		if (OtherActor == nullptr)
+		{
+			GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
+			return;
+		}
 		UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, GetController(), this, DmgType);
 	}, AttackRate, true);
 }

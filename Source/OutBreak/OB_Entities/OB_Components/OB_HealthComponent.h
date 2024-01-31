@@ -32,6 +32,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Health")
 	void RemoveHealth(float Amount);
 
+	UFUNCTION(BlueprintCallable, Category = "Health")
+	bool IsDead() const { return CurrentHealth <= 0.f; }
+
 	UPROPERTY(BlueprintAssignable, Category = "Health")
 	FOnHealthChanged OnHealthChanged;
 

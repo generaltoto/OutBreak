@@ -59,7 +59,7 @@ void AOB_Character::UnequipWeapon()
 
 void AOB_Character::OnDamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
 {
-	if (DamageType->IsA(CanTakeDamageType))
+	if (DamageType->IsA(CanTakeDamageType) && HealthComponent->IsDead() == false)
 	{
 		HealthComponent->RemoveHealth(Damage);
 	}

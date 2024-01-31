@@ -86,6 +86,7 @@ void AOB_WeaponBase::PlayFireAnimations() const
 
 void AOB_WeaponBase::TryAttachWeapon(AOB_Character* TargetCharacter)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString::Printf(TEXT("TryAttachWeapon")));
 	Character = TargetCharacter;
 
 	if (Character == nullptr) return;
