@@ -7,14 +7,12 @@
 #include "Components/ArrowComponent.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Kismet/KismetArrayLibrary.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "OutBreak/OB_Entities/OB_Enemy.h"
 
 
-// Sets default values
 AOB_Tile::AOB_Tile()
 {
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	USceneComponent* RootComp = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
@@ -58,7 +56,6 @@ TArray<AOB_PickUpItem*> AOB_Tile::GetPickUpItems() const
 	return Temp;
 }
 
-// Called when the game starts or when spawned
 void AOB_Tile::BeginPlay()
 {
 	Super::BeginPlay();
@@ -66,9 +63,9 @@ void AOB_Tile::BeginPlay()
 	TileExitTrigger->OnComponentBeginOverlap.AddDynamic(this, &AOB_Tile::OverlapStarted);
 
 	SpawnAllItems();
+	SpawnAllEnemies();
 }
 
-// Called every frame
 void AOB_Tile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -91,6 +88,8 @@ void AOB_Tile::SpawnItem(TSubclassOf<AActor> ItemClass, bool IsPickUp)
 	const FTransform Transform = FTransform(Rotation, Location, Scale);
 
 	AActor* Spawned = GetWorld()->SpawnActor(ItemClass, &Transform);
+	if (Spawned == nullptr) return;
+	
 	SpawnedItems.Add(Spawned);
 }
 
@@ -109,6 +108,43 @@ void AOB_Tile::SpawnAllItems()
 			SpawnItem(PickUpItemsToSpawn[RandomIndex], true);
 		}
 	}
+}
+
+void AOB_Tile::SpawnAllEnemies()
+{
+	for (int32 i = 0; i < NumberOfEnemiesToSpawn; ++i)
+	{
+		SpawnRandomEnemy();
+	}
+}
+
+void AOB_Tile::SpawnRandomEnemy()
+{
+	const float RandomWeight = FMath::FRandRange(0.0f, 1.0f);
+	float TotalWeight = 0.0f;
+	
+	TSubclassOf<AOB_Enemy> EnemyClass = nullptr;
+	for (auto& Enemy : EnemiesToSpawn)
+	{
+		TotalWeight += Enemy.Value;
+		if (RandomWeight <= TotalWeight)
+		{
+			EnemyClass = Enemy.Key;
+			break;
+		}
+	}
+
+	if (EnemyClass == nullptr) return;
+	SpawnEnemy(EnemyClass);
+}
+
+void AOB_Tile::SpawnEnemy(TSubclassOf<AOB_Enemy> EnemyClass)
+{
+	const FVector Location = UKismetMathLibrary::RandomPointInBoundingBox(SpawnZone->GetComponentLocation(), SpawnZone->GetScaledBoxExtent());
+	const FTransform Transform = FTransform(FRotator::ZeroRotator, Location, FVector::OneVector);
+
+	AActor* Spawned = GetWorld()->SpawnActor(EnemyClass, &Transform);
+	//SpawnedItems.Add(Spawned);
 }
 
 void AOB_Tile::OverlapStarted_Implementation(

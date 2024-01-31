@@ -21,11 +21,11 @@ void AOB_EnemyController::BeginPlay()
 void AOB_EnemyController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 	switch (ControlledPawnState)
 	{
 		case EEnemyState::IDLE:
-			GetPawn()->AddMovementInput(GetPawn()->GetActorForwardVector(), 1.0f);
+			GetPawn()->AddMovementInput(ForwardVector, 1.0f);
 			break;
 		case EEnemyState::CHASING:
 			MoveToActor(TargetActor, AcceptanceRadius);

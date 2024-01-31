@@ -19,65 +19,100 @@ class OUTBREAK_API AOB_Tile : public AActor
 public:
 	AOB_Tile();
 
-	UPROPERTY(EditAnywhere, Category = "Tile Events")
-	int32 NumberOfItemsToSpawn;
+	/** Obstacles and PickUp Items */
 
-	UPROPERTY(EditAnywhere, Category = "Tile Events")
-	float ObstacleSpawnProbability;
+	UFUNCTION(BlueprintCallable, Category = "Obstacles and PickUp Items")
+	TArray<AOB_PickUpItem*> GetPickUpItems() const;
 
-	UPROPERTY(EditAnywhere, Category = "Tile Events")
-	TArray<TSubclassOf<AActor>> ObstaclesToSpawn;
-	
-	UPROPERTY(EditAnywhere, Category = "Tile Events")
-	TArray<TSubclassOf<AActor>> PickUpItemsToSpawn;
+	/** Tile Events */
 
-	UPROPERTY(VisibleAnywhere, Category = "Tile Components")
-	TArray<AActor*> SpawnedItems;
-
-	UPROPERTY(BlueprintAssignable, Category = "Tile Events")
+	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnTileExitDelegate OnTileExit;
 
-	UPROPERTY(EditAnywhere, Category = "Tile Components")
-	UArrowComponent* ArrowComponent;
+	/** Components */
 
-	UPROPERTY(EditAnywhere, Category = "Tile Components")
-	UStaticMeshComponent* FloorMeshComponent;
+	UFUNCTION(BlueprintCallable, Category = "Components")
+	FTransform GetAttachTransform() const;
 
-	UPROPERTY(EditAnywhere, Category = "Tile Components")
-	UStaticMeshComponent* LeftWallMeshComponent;
+protected:
+	
+	/** Obstacles and PickUp Items */
+	
+	UPROPERTY(EditAnywhere, Category = "Obstacles and PickUp Items", meta = (ClampMin = 0))
+	int32 NumberOfItemsToSpawn;
 
-	UPROPERTY(EditAnywhere, Category = "Tile Components")
-	UStaticMeshComponent* RightWallMeshComponent;
+	UPROPERTY(EditAnywhere, Category = "Obstacles and PickUp Items", meta = (ClampMin = 0.0f, ClampMax = 1.0f))
+	float ObstacleSpawnProbability;
 
-	UPROPERTY(EditAnywhere, Category = "Tile Triggers")
-	UBoxComponent* TileExitTrigger;
+	UPROPERTY(EditAnywhere, Category = "Obstacles and PickUp Items")
+	TArray<TSubclassOf<AActor>> ObstaclesToSpawn;
+	
+	UPROPERTY(EditAnywhere, Category = "Obstacles and PickUp Items")
+	TArray<TSubclassOf<AActor>> PickUpItemsToSpawn;
 
-	UFUNCTION(BlueprintNativeEvent, Category = "Tile Triggers")
+	UPROPERTY(VisibleAnywhere, Category = "Obstacles and PickUp Items")
+	TArray<AActor*> SpawnedItems;
+
+	UFUNCTION(Blueprintable, Category = "Obstacles and PickUp Items")
+	void SpawnItem(TSubclassOf<AActor> ItemClass, bool IsPickUp = false);
+
+	UFUNCTION(Blueprintable, Category = "Obstacles and PickUp Items")
+	void SpawnAllItems();
+
+	/** Enemies */
+
+	UPROPERTY(EditAnywhere, Category = "Enemies", meta = (ClampMin = 0, ClampMax = 10))
+	int32 NumberOfEnemiesToSpawn;
+
+	UPROPERTY(EditAnywhere, Category = "Enemies")
+	TMap<TSubclassOf<class AOB_Enemy>, int32> EnemiesToSpawn;
+
+	UPROPERTY(VisibleAnywhere, Category = "Enemies")
+	TArray<AActor*> SpawnedEnemies;
+
+	UFUNCTION(BlueprintCallable, Category = "Enemies")
+	void SpawnAllEnemies();
+
+	UFUNCTION(Blueprintable, Category = "Enemies")
+	void SpawnRandomEnemy();
+
+	UFUNCTION(Blueprintable, Category = "Enemies")
+	void SpawnEnemy(TSubclassOf<class AOB_Enemy> EnemyClass);
+
+	/** Tile Events */
+	
+	UFUNCTION(BlueprintNativeEvent, Category = "Events")
 	void OverlapStarted(
 		UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
 		const FHitResult& SweepResult
 	);
 
-	UFUNCTION(BlueprintNativeEvent, Category = "Tile Events")
+	UFUNCTION(BlueprintNativeEvent, Category = "Events")
 	void OnTileExitedPendingDestroy();
+	
+	/** Tile Components */
 
-	UPROPERTY(EditAnywhere, Category = "Tile Triggers")
+	UPROPERTY(EditAnywhere, Category = "Components")
+	UArrowComponent* ArrowComponent;
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+	UStaticMeshComponent* FloorMeshComponent;
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+	UStaticMeshComponent* LeftWallMeshComponent;
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+	UStaticMeshComponent* RightWallMeshComponent;
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+	UBoxComponent* TileExitTrigger;
+	
+	UPROPERTY(EditAnywhere, Category = "Components")
 	UBoxComponent* SpawnZone;
-
-	UFUNCTION(BlueprintCallable, Category = "Tile Events")
-	FTransform GetAttachTransform() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Tile Items")
-	TArray<AOB_PickUpItem*> GetPickUpItems() const;
-
-protected:
+	
+	/** Tile Basics */
+	
 	virtual void BeginPlay() override;
 	
 	virtual void Tick(float DeltaTime) override;
-
-	UFUNCTION(Blueprintable, Category = "Tile Events")
-	void SpawnItem(TSubclassOf<AActor> ItemClass, bool IsPickUp = false);
-
-	UFUNCTION(Blueprintable, Category = "Tile Events")
-	void SpawnAllItems();
 };

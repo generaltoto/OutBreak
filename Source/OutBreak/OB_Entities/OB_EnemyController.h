@@ -31,6 +31,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
 	float AcceptanceRadius;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
+	FVector ForwardVector;
+
 	UFUNCTION()
 	void OnStateChange(EEnemyState State, AActor* Target);
 

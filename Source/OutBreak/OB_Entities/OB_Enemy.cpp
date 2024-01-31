@@ -57,7 +57,6 @@ void AOB_Enemy::HandleDeath()
 void AOB_Enemy::SetState(EEnemyState NewState, AActor* Target)
 {
 	State = NewState;
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString::Printf(TEXT("State: %s"), *UEnum::GetValueAsString(State)));
 	OnStateChange.Broadcast(State, Target);
 }
 
@@ -89,15 +88,17 @@ void AOB_Enemy::OnAttackRangeSphereBeginOverlap(
 	
 	SetState(ATTACKING, OtherActor);
 
-	GetWorld()->GetTimerManager().SetTimer(AttackTimerHandle, [this, OtherActor]()
-	{
-		if (OtherActor == nullptr)
-		{
-			GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
-			return;
-		}
-		UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, GetController(), this, DmgType);
-	}, AttackRate, true);
+	UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, GetController(), this, DmgType);
+	
+	// GetWorld()->GetTimerManager().SetTimer(AttackTimerHandle, [this, OtherActor]()
+	// {
+	// 	if (OtherActor == nullptr)
+	// 	{
+	// 		GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
+	// 		return;
+	// 	}
+	// 	
+	// }, AttackRate, true);
 }
 
 void AOB_Enemy::OnAttackRangeSphereEndOverlap(
@@ -108,5 +109,5 @@ void AOB_Enemy::OnAttackRangeSphereEndOverlap(
 	
 	SetState(CHASING, OtherActor);
 
-	GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
+	// GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
 }
