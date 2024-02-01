@@ -52,4 +52,8 @@ protected:
 	void SetHealth(float NewHealth);
 	
 	virtual void BeginPlay() override;
+
+private:
+	// Prevents OnDeath from being broadcasted multiple times
+	bool bIsDeathHandled;
 };

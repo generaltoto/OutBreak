@@ -90,15 +90,15 @@ void AOB_Enemy::OnAttackRangeSphereBeginOverlap(
 
 	UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, GetController(), this, DmgType);
 	
-	// GetWorld()->GetTimerManager().SetTimer(AttackTimerHandle, [this, OtherActor]()
-	// {
-	// 	if (OtherActor == nullptr)
-	// 	{
-	// 		GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
-	// 		return;
-	// 	}
-	// 	
-	// }, AttackRate, true);
+	GetWorld()->GetTimerManager().SetTimer(AttackTimerHandle, [this, OtherActor]()
+	{
+		if (OtherActor == nullptr)
+		{
+			GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
+			return;
+		}
+		UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, GetController(), this, DmgType);
+	}, AttackRate, true);
 }
 
 void AOB_Enemy::OnAttackRangeSphereEndOverlap(
@@ -109,5 +109,5 @@ void AOB_Enemy::OnAttackRangeSphereEndOverlap(
 	
 	SetState(CHASING, OtherActor);
 
-	// GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
+	GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
 }

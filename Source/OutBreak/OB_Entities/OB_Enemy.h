@@ -50,8 +50,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Damage)
 	float AttackRate;
 
-	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Damage)
-	//FTimerHandle AttackTimerHandle;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Damage)
+	FTimerHandle AttackTimerHandle;
 	
 	/** Methods Basic */
 	
