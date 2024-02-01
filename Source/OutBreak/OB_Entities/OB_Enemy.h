@@ -52,10 +52,17 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Damage)
 	FTimerHandle AttackTimerHandle;
+
+	/** References */
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = References)
+	class AOB_Character* PlayerCharacter;
 	
 	/** Methods Basic */
 	
 	virtual void BeginPlay() override;
+
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 	/** Methods Health */
 

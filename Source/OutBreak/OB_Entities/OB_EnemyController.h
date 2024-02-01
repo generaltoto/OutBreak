@@ -34,6 +34,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI)
 	FVector ForwardVector;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI, meta = (ClampMin = 0.0f, ClampMax = 1000.0f))
+    float WalkSpeed;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AI, meta = (ClampMin = 0.0f, ClampMax = 1000.0f))
+    float RunSpeed;
+
 	UFUNCTION()
 	void OnStateChange(EEnemyState State, AActor* Target);
 

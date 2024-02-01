@@ -67,19 +67,15 @@ void AOB_EnemyController::OnStateChange(EEnemyState State, AActor* Target)
 	{
 		case EEnemyState::IDLE:
 			{
-				MovementComponent->MaxWalkSpeed = 150.0f;
+				MovementComponent->MaxWalkSpeed = WalkSpeed;
 				break;
 			}
 		case EEnemyState::CHASING:
 			{
-				MovementComponent->MaxWalkSpeed = 300.0f;
+				MovementComponent->MaxWalkSpeed = RunSpeed;
 				break;
 			}
 		case EEnemyState::ATTACKING:
-			{
-				MovementComponent->MaxWalkSpeed = 0.0f;
-				break;
-			}
 		case EEnemyState::DEAD:
 			{
 				MovementComponent->MaxWalkSpeed = 0.0f;

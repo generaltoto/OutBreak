@@ -28,7 +28,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Tile)
 	TArray<TSubclassOf<class AOB_Tile>> TileClasses;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Tile)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Tile)
 	FTransform NextTileTransform;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Tile, meta = (ClampMin = 1, ClampMax = 10))

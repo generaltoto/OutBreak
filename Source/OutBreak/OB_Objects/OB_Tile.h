@@ -65,10 +65,10 @@ protected:
 	int32 NumberOfEnemiesToSpawn;
 
 	UPROPERTY(EditAnywhere, Category = "Enemies")
-	TMap<TSubclassOf<class AOB_Enemy>, int32> EnemiesToSpawn;
+	TMap<TSubclassOf<class AOB_Enemy>, float> EnemiesToSpawn;
 
-	UPROPERTY(VisibleAnywhere, Category = "Enemies")
-	TArray<AActor*> SpawnedEnemies;
+	UPROPERTY(EditAnywhere, Category = "Enemies")
+	UBoxComponent* EnemyKillZone;
 
 	UFUNCTION(BlueprintCallable, Category = "Enemies")
 	void SpawnAllEnemies();

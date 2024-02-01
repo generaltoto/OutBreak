@@ -52,6 +52,8 @@ void AOB_Character::EquipWeapon(AOB_WeaponBase* Weapon)
 
 void AOB_Character::UnequipWeapon()
 {
+	if (CurrentWeapon == nullptr) return;
+
 	CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	CurrentWeapon = nullptr;
 	OnWeaponChanged.Broadcast(CurrentWeapon);
@@ -68,8 +70,9 @@ void AOB_Character::OnDamageTaken(AActor* DamagedActor, float Damage, const UDam
 void AOB_Character::HandleDeath()
 {
 	GetCharacterMovement()->StopMovementImmediately();
-
-	SetActorHiddenInGame(true);
+	
+	UnequipWeapon();
+	//SetActorHiddenInGame(true);
 
 	DetachFromControllerPendingDestroy();
 

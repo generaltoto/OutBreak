@@ -35,6 +35,9 @@ AOB_Tile::AOB_Tile()
 
 	TileExitTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("TileExitTrigger"));
 	TileExitTrigger->SetupAttachment(FloorMeshComponent);
+
+	EnemyKillZone = CreateDefaultSubobject<UBoxComponent>(TEXT("EnemyKillZone"));
+	EnemyKillZone->SetupAttachment(RootComponent);
 }
 
 FTransform AOB_Tile::GetAttachTransform() const
@@ -124,12 +127,12 @@ void AOB_Tile::SpawnRandomEnemy()
 	float TotalWeight = 0.0f;
 	
 	TSubclassOf<AOB_Enemy> EnemyClass = nullptr;
-	for (auto& Enemy : EnemiesToSpawn)
+	for (auto& [Class, SpawnRate] : EnemiesToSpawn)
 	{
-		TotalWeight += Enemy.Value;
+		TotalWeight += SpawnRate;
 		if (RandomWeight <= TotalWeight)
 		{
-			EnemyClass = Enemy.Key;
+			EnemyClass = Class;
 			break;
 		}
 	}
@@ -165,6 +168,14 @@ void AOB_Tile::OnTileExitedPendingDestroy_Implementation()
 	for (AActor* SpawnedItem : SpawnedItems)
 	{
 		SpawnedItem->Destroy();
+	}
+
+	TArray<AActor*> OverlappingActors;
+	EnemyKillZone->GetOverlappingActors(OverlappingActors, AOB_Enemy::StaticClass());
+
+	for (AActor* OverlappingActor : OverlappingActors)
+	{
+		if (OverlappingActor != nullptr) OverlappingActor->Destroy();
 	}
 	
 	Destroy();

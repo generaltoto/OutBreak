@@ -6,6 +6,7 @@
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "OB_Components/OB_HealthComponent.h"
+#include "OutBreak/OB_Character/OB_Character.h"
 
 AOB_Enemy::AOB_Enemy()
 {
@@ -34,6 +35,14 @@ void AOB_Enemy::BeginPlay()
 	HealthComponent->OnDeath.AddDynamic(this, &AOB_Enemy::HandleDeath);
 
 	SetState(IDLE);
+}
+
+void AOB_Enemy::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	GetWorldTimerManager().ClearTimer(AttackTimerHandle);
+	GetWorldTimerManager().ClearAllTimersForObject(this);
 }
 
 void AOB_Enemy::OnDamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
@@ -66,7 +75,6 @@ void AOB_Enemy::OnRangeDetectionSphereBeginOverlap(
 )
 {
 	if (OtherActor->ActorHasTag("Player") == false) return;
-	
 	SetState(CHASING, OtherActor);
 }
 
@@ -92,12 +100,12 @@ void AOB_Enemy::OnAttackRangeSphereBeginOverlap(
 	
 	GetWorld()->GetTimerManager().SetTimer(AttackTimerHandle, [this, OtherActor]()
 	{
-		if (OtherActor == nullptr)
+		if (IsValid(OtherActor) == false || IsValid(Controller) == false)
 		{
 			GetWorld()->GetTimerManager().ClearTimer(AttackTimerHandle);
 			return;
 		}
-		UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, GetController(), this, DmgType);
+		UGameplayStatics::ApplyDamage(OtherActor, AttackDamage, Controller, this, DmgType);
 	}, AttackRate, true);
 }
 

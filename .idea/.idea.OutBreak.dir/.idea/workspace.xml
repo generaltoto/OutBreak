@@ -7,14 +7,110 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment="">
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":fix: ($Player) : Fix OnDeath event triggering to many times&#10;&#10;* Add bIsDeathHandled to HealthComponent&#10;* Bring back attack looping event for zombies&#10;* Balance zombie speed and damage">
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Hunter/AB_Hunter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Hunter/AI_Hunter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Hunter/BP_Hunter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/M_Color.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/M_HunterColor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/M_TankColor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/M_WitchColor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/M_ZombieColor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Tank/AB_Tank.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Tank/AI_Tank.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Tank/BP_Tank.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Witch/AB_Witch.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Witch/AI_Witch.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Witch/BP_Witch.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie(Walker)/AB_Zombie.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie(Walker)/AI_Zombie.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie(Walker)/BP_Zombie.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/PL/1W7K04MV0OJ57OXA5QSEP0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/B6/8I45E9TDWTBYJQG75R3OSR.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/43/VI1QRS72JTMWHR95AMVOJZ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/WS/1FH5AVJWRED0W0VMFU6F58.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Components/OB_HealthComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Character/BP_Hero.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Character/BP_Hero.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AB_Zombie.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/AI_Zombie.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Entities/Zombie/BP_Zombie.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Objects/BP_Tile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/Objects/BP_Tile.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/System/BP_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/3Q/4W4JJ0AI2QMG0WD0XAZZKF.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/3Q/4W4JJ0AI2QMG0WD0XAZZKF.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/6Q/BKI3W4QTKUMCBJE0DCNZJO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/6Q/BKI3W4QTKUMCBJE0DCNZJO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/7L/CKUAV5YG21D67VAUOQHR4T.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/7L/CKUAV5YG21D67VAUOQHR4T.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/9C/O5SJR95GFSOZM5PX1W7IOF.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/9C/O5SJR95GFSOZM5PX1W7IOF.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/AZ/2QAY35QXJDDV5AR700XBFM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/AZ/2QAY35QXJDDV5AR700XBFM.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/RV/R7VIF997TFZB7YWPPK08GP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/0/RV/R7VIF997TFZB7YWPPK08GP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/10/8G8FXIO4L3HDDFDNOEELFF.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/10/8G8FXIO4L3HDDFDNOEELFF.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/43/ZRR6DO49POR161JSUJT5J9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/43/ZRR6DO49POR161JSUJT5J9.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/60/4WGTTAAFQP1P1GW6DU8KX1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/60/4WGTTAAFQP1P1GW6DU8KX1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/F8/SSLH3PWBWE3YA36QH3FO86.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/F8/SSLH3PWBWE3YA36QH3FO86.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/N5/RRT4O1NDXXKE4CQ55YTM1G.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/N5/RRT4O1NDXXKE4CQ55YTM1G.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/P4/JVEO22YWHZL7SB08WCRQO5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/P4/JVEO22YWHZL7SB08WCRQO5.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/T5/YRXIJM4PQE00V9CVPMYQCH.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/1/T5/YRXIJM4PQE00V9CVPMYQCH.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/2/8D/LVF0LOHO6O36YUWICU5GA5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/2/8D/LVF0LOHO6O36YUWICU5GA5.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/2/AX/DR6WKDZPTJ30KYSTA2BTMJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/2/AX/DR6WKDZPTJ30KYSTA2BTMJ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/2/PF/0H5LQRK3A4GVS2UZKRSRM1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/2/PF/0H5LQRK3A4GVS2UZKRSRM1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/2S/W9PYLQEHNF65UJ3DOWFSHS.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/2S/W9PYLQEHNF65UJ3DOWFSHS.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/2V/LXMP4JO5G8EOJYDBFDTDEE.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/2V/LXMP4JO5G8EOJYDBFDTDEE.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/88/YGDHND41CPS32HJJTPRV56.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/88/YGDHND41CPS32HJJTPRV56.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/ZX/Y4BVV5BCKCBMR0T1FXJL2R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/3/ZX/Y4BVV5BCKCBMR0T1FXJL2R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/KZ/CW7Q256C6A2S0ZD54XWL8F.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/KZ/CW7Q256C6A2S0ZD54XWL8F.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/TD/V1SM1NYMR2L0XU3KMAP0ZY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/TD/V1SM1NYMR2L0XU3KMAP0ZY.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/US/FEU5R1RC4NML4ZY13ZWEUC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/US/FEU5R1RC4NML4ZY13ZWEUC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/XK/M91TN8YAHG1PYFBWFECDTX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/XK/M91TN8YAHG1PYFBWFECDTX.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/XW/TVL4ZS497YQ29BZPMLDWRJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/4/XW/TVL4ZS497YQ29BZPMLDWRJ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/4T/5JFW8D1FWXPR72FCC7U46S.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/4T/5JFW8D1FWXPR72FCC7U46S.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/B8/MJVLQ6VHHOKO0TXLN54WYT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/B8/MJVLQ6VHHOKO0TXLN54WYT.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/IX/RWS0CPD59COZB76W2C0X9C.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/IX/RWS0CPD59COZB76W2C0X9C.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/JO/M74CRDT7VNSH7ERI83UQXY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/JO/M74CRDT7VNSH7ERI83UQXY.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/KI/PJL51SDZSUSGM494PFD1WA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/5/KI/PJL51SDZSUSGM494PFD1WA.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/1L/U165UU0G8BPRT8DSUSYAPW.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/1L/U165UU0G8BPRT8DSUSYAPW.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/2F/C9BC9LTES2BM5V4TZ8YV70.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/2F/C9BC9LTES2BM5V4TZ8YV70.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/BV/9T1WR04W6FOGAWR8CJS5X6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/BV/9T1WR04W6FOGAWR8CJS5X6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/P4/U1RQI0SF3A0GLFML06HFCC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/P4/U1RQI0SF3A0GLFML06HFCC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/PZ/X1VNQ06I2FGR4N3T9GTRHT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/PZ/X1VNQ06I2FGR4N3T9GTRHT.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/ST/3BBTIVII5YMEMIDYEP20ZH.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/ST/3BBTIVII5YMEMIDYEP20ZH.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/ZA/UNZNE85RU2VGN1TW5UQP08.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/6/ZA/UNZNE85RU2VGN1TW5UQP08.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/53/KSAABH6A3FRGHVM5U62DMZ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/53/KSAABH6A3FRGHVM5U62DMZ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/7N/PVDECUSP4IZD42SB56EFDY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/7N/PVDECUSP4IZD42SB56EFDY.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/SR/RV62IWWF7WWLVBOA04RE80.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/SR/RV62IWWF7WWLVBOA04RE80.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/WM/PDUHZJGURAYA7CQA0YTN1F.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/7/WM/PDUHZJGURAYA7CQA0YTN1F.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/8/E9/4086EE9X1VWTYQLQFEBKDW.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/8/E9/4086EE9X1VWTYQLQFEBKDW.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/8/GV/NU8U7CN8F9I0XTAA82W497.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/8/GV/NU8U7CN8F9I0XTAA82W497.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/8/UJ/TH58G7IAVYQ6VRMI8PDLZP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/8/UJ/TH58G7IAVYQ6VRMI8PDLZP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/B2/0K1N71H24VWPTXVIO7YLUQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/B2/0K1N71H24VWPTXVIO7YLUQ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/N0/XFANVWGGYXA721HY2VUS6U.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/N0/XFANVWGGYXA721HY2VUS6U.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/QI/2S92U0XS3EW96IR2EJZIKI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/QI/2S92U0XS3EW96IR2EJZIKI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/QU/GEX737MXJ1BX88ON79S2F8.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/QU/GEX737MXJ1BX88ON79S2F8.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/VH/BVHK8KQKV8GPDG4RAFUDI1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/VH/BVHK8KQKV8GPDG4RAFUDI1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/ZN/RSL7EC3F3TJ7OU9WVZO4SU.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/9/ZN/RSL7EC3F3TJ7OU9WVZO4SU.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/A/B3/P91M963GW2DTOHJT69X0PE.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/A/B3/P91M963GW2DTOHJT69X0PE.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/A/SL/WANGUMGDGNLBZ8E262E0MY.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/A/SL/WANGUMGDGNLBZ8E262E0MY.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/B/VY/E934C2KMZIDX24GJV9W9QG.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/B/VY/E934C2KMZIDX24GJV9W9QG.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/4B/PBR0FHRWSESTZ0B23XRA11.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/4B/PBR0FHRWSESTZ0B23XRA11.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/52/GPQQG4MYINEX4XBSN4301B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/52/GPQQG4MYINEX4XBSN4301B.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/K6/TR6H1RZVUD6YCDGV5O5Y20.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/K6/TR6H1RZVUD6YCDGV5O5Y20.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/LX/F2Y7F6XW0AU3IK5U4VYXQW.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/LX/F2Y7F6XW0AU3IK5U4VYXQW.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/P9/GA9FNHVADLOIQHXD8VP964.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/P9/GA9FNHVADLOIQHXD8VP964.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/T7/BD8PU72BQXV9H9W2539J85.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/T7/BD8PU72BQXV9H9W2539J85.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/UV/9YLQCOQN3U0Q46OXGQDXYV.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/C/UV/9YLQCOQN3U0Q46OXGQDXYV.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/D/UG/TXW8CP00KGTGG629ACOS2U.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/D/UG/TXW8CP00KGTGG629ACOS2U.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/4N/CEHR6UP2MOI9W3SET79S5H.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/4N/CEHR6UP2MOI9W3SET79S5H.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/58/6W1OC1BHTD6PW0CLZRC09M.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/58/6W1OC1BHTD6PW0CLZRC09M.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/JC/08G0NVJ2D5LOKJ48F9AVA8.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/JC/08G0NVJ2D5LOKJ48F9AVA8.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/N7/GDP03JZNHQH012PE0V3URA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/E/N7/GDP03JZNHQH012PE0V3URA.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/F/08/Q3RPNBTVIX26NCJ62WN3OG.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/F/08/Q3RPNBTVIX26NCJ62WN3OG.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/F/0S/ZI96P5YL80X3T6U72E9SVI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/OutBreak/Scenes/BaseMap/F/0S/ZI96P5YL80X3T6U72E9SVI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Character/OB_Character.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_Enemy.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Entities/OB_EnemyController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Tile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Objects/OB_Tile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_System/OB_GameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_System/OB_GameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +276,8 @@
       <workItem from="1706514973633" duration="22322000" />
       <workItem from="1706600650085" duration="11590000" />
       <workItem from="1706697282195" duration="15330000" />
-      <workItem from="1706774274368" duration="1391000" />
+      <workItem from="1706774274368" duration="9953000" />
+      <workItem from="1706785083771" duration="1111000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -310,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706717403829</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary=":fix: ($Player) : Fix OnDeath event triggering to many times&#10;&#10;* Add bIsDeathHandled to HealthComponent&#10;* Bring back attack looping event for zombies&#10;* Balance zombie speed and damage">
+      <option name="closed" value="true" />
+      <created>1706776031242</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1706776031242</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -333,6 +438,7 @@
     <MESSAGE value=":feat: ($Enemies) : Add enemy damage &#10;&#10;#KNOWN BUG : &#10;* Game crashing when shooting inside enemy detection range&#10;* OnPlayerDeath triggered multiple times ? &#10;* Enemy do not chase when exiting attack range&#10;** Move to actor seems not working" />
     <MESSAGE value=":refactor: ($Enemies) : Small changes on enemies and health component" />
     <MESSAGE value=":feat: ($Enemies) : Enemies and obstacles spawn in tile &#10;&#10;# BUG : Huge bug on player death" />
-    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($Enemies) : Enemies and obstacles spawn in tile &#10;&#10;# BUG : Huge bug on player death" />
+    <MESSAGE value=":fix: ($Player) : Fix OnDeath event triggering to many times&#10;&#10;* Add bIsDeathHandled to HealthComponent&#10;* Bring back attack looping event for zombies&#10;* Balance zombie speed and damage" />
+    <option name="LAST_COMMIT_MESSAGE" value=":fix: ($Player) : Fix OnDeath event triggering to many times&#10;&#10;* Add bIsDeathHandled to HealthComponent&#10;* Bring back attack looping event for zombies&#10;* Balance zombie speed and damage" />
   </component>
 </project>
