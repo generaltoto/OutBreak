@@ -49,4 +49,12 @@ void AOB_AutomaticWeapon::Shoot()
 	PlayFireAnimations();
 }
 
+void AOB_AutomaticWeapon::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	GetWorldTimerManager().ClearTimer(FireTimerHandle);
+	GetWorldTimerManager().ClearAllTimersForObject(this);
+}
+
 

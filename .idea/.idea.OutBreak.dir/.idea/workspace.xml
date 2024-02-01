@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":refactor: ($Enemies) : Values changes for enemies + Timer clear on enemy destroy">
+    <list default="true" id="ce62b8ce-7461-4fe0-891e-82734f47d3ae" name="Changes" comment=":feat: ($UI) : UI changes for weapon and health display">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OutBreak.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/OutBreak/Blueprints/UI/WB_HUD.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/OutBreak/OB_Items/OB_Weapons/OB_AmmoComponent.cpp" afterDir="false" />
@@ -152,7 +152,7 @@
       <workItem from="1706600650085" duration="11590000" />
       <workItem from="1706697282195" duration="15330000" />
       <workItem from="1706774274368" duration="9953000" />
-      <workItem from="1706785083771" duration="3741000" />
+      <workItem from="1706785083771" duration="4147000" />
     </task>
     <task id="LOCAL-00001" summary=":build: ($Setup) : Trying to make base content work after class renaming">
       <option name="closed" value="true" />
@@ -323,6 +323,7 @@
     <MESSAGE value=":feat: ($Enemies) : Enemies and obstacles spawn in tile &#10;&#10;# BUG : Huge bug on player death" />
     <MESSAGE value=":fix: ($Player) : Fix OnDeath event triggering to many times&#10;&#10;* Add bIsDeathHandled to HealthComponent&#10;* Bring back attack looping event for zombies&#10;* Balance zombie speed and damage" />
     <MESSAGE value=":refactor: ($Enemies) : Values changes for enemies + Timer clear on enemy destroy" />
-    <option name="LAST_COMMIT_MESSAGE" value=":refactor: ($Enemies) : Values changes for enemies + Timer clear on enemy destroy" />
+    <MESSAGE value=":feat: ($UI) : UI changes for weapon and health display" />
+    <option name="LAST_COMMIT_MESSAGE" value=":feat: ($UI) : UI changes for weapon and health display" />
   </component>
 </project>

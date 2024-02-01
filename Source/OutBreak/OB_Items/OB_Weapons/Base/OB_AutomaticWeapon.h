@@ -23,6 +23,8 @@ protected:
 
 	virtual void Shoot() override;
 
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Fire)
 	FTimerHandle FireTimerHandle;
 
