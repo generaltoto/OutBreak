@@ -13,7 +13,7 @@ UOB_AmmoComponent::UOB_AmmoComponent()
 
 void UOB_AmmoComponent::Shoot()
 {
-	OnAmmoChanged.Broadcast(--CurrentAmmo, AmmoInReserve);
+	OnAmmoChanged.Broadcast(--CurrentAmmo, AmmoPerClip, AmmoInReserve);
 }
 
 void UOB_AmmoComponent::Reload()
@@ -32,7 +32,7 @@ void UOB_AmmoComponent::Reload()
 		AmmoInReserve -= AmmoNeeded;
 	}
 
-	OnAmmoChanged.Broadcast(CurrentAmmo, AmmoInReserve);
+	OnAmmoChanged.Broadcast(CurrentAmmo, AmmoPerClip, AmmoInReserve);
 
 	if (ReloadSound != nullptr)
 	{

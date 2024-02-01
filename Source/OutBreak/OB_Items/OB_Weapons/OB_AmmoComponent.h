@@ -6,7 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "OB_AmmoComponent.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnAmmoChanged, int32, CurrentAmmo, int32, AmmoInReserve);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnAmmoChanged, int32, CurrentAmmo, int32, AmmoPerClip, int32, AmmoInReserve);
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class OUTBREAK_API UOB_AmmoComponent : public UActorComponent
